@@ -21,6 +21,11 @@ jobs:
     - uses: gradle/gradle-build-action@v2
       with:
         arguments: test
+        gradle-version: current
+        gradle-home-cache-cleanup: true
+
+    - name: Execute build with Gradle wrapper
+      run: ./gradlew build
         
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
