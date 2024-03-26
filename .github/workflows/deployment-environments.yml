@@ -15,16 +15,10 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
     
-    - uses: gradle/gradle-build-action@v2
-      with:
-        arguments: build
-    - uses: gradle/gradle-build-action@v2
-      with:
-        arguments: test
-        gradle-version: current
-        gradle-home-cache-cleanup: true
-
-    - name: Execute build with Gradle wrapper
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v3
+      
+    - name: Build with Gradle
       run: ./gradlew build
         
     - name: Upload Artifact
