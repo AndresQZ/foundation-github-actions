@@ -26,14 +26,20 @@ jobs:
       uses: gradle/gradle-build-action@v2
       with:
         gradle-version: 8.5
-    - name: PWD
-      run: echo $pwd
-    
-    - name: Check gradle version
-      run: gradle --version
 
-    - name: Make gradlew executable
-      run: chmod +x ./gradlew
+    - uses: gradle/gradle-build-action@v2
+      with:
+        arguments: build
+    - uses: gradle/gradle-build-action@v2
+      with:
+        arguments: test
+
+    
+  #  - name: Check gradle version
+   #   run: gradle --version
+
+    #- name: Make gradlew executable
+    #  run: chmod +x ./gradlew
 
     - name: Build with Gradle
      # working-directory: ./basic_gradle
