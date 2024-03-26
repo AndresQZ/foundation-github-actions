@@ -15,13 +15,15 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
     
-    - name: Setup Gradle
-      uses: gradle/gradle-build-action@v3
+    - name: Enable actions/cache for Gradle
+      uses: gradle/gradle-build-action@a4cf152f482c7ca97ef56ead29bf08bcd953284c # v2.7.0
       with:
-        cache-disabled: true
-      
-    - name: Build with Gradle
-      run: ./gradlew build
+        gradle-home-cache-cleanup: true
+    - name: Gradle Build
+      shell: bash
+      run: |
+          ./gradlew build
+          echo "$(find /home/.gradle/wrapper/dists/ -name gradle | xargs ls -tr | tail -n 1 | xargs dirname)" >> $GITHUB_PATH
         
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
