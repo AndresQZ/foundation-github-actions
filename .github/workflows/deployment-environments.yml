@@ -38,8 +38,8 @@ jobs:
   #  - name: Check gradle version
    #   run: gradle --version
 
-    #- name: Make gradlew executable
-    #  run: chmod +x ./gradlew
+    - name: Make gradlew executable
+      run: chmod +x ./gradlew
 
     - name: Build with Gradle
      # working-directory: ./basic_gradle
