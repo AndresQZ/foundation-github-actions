@@ -33,6 +33,7 @@ jobs:
       run: gradle --version
 
     - name: Build with Gradle
+      working-directory: ./basic_gradle
       run: ./gradlew build
         
     - name: Upload Artifact
