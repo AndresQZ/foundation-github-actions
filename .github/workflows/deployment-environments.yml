@@ -32,8 +32,11 @@ jobs:
     - name: Check gradle version
       run: gradle --version
 
+    - name: Make gradlew executable
+      run: chmod +x ./gradlew
+
     - name: Build with Gradle
-      working-directory: ./basic_gradle
+     # working-directory: ./basic_gradle
       run: ./gradlew build
         
     - name: Upload Artifact
