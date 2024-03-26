@@ -27,7 +27,7 @@ jobs:
       with:
         gradle-version: 8.5
     - name: PWD
-      run: echo pwd
+      run: echo $pwd
     
     - name: Check gradle version
       run: gradle --version
