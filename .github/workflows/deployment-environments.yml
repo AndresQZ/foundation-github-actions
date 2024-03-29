@@ -3,13 +3,13 @@ on:
   push:
     branches: [ "main", "dev" ]
 
+defaults:
+  run:
+    working-directory: ./basic_gradle    
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: ./basic_gradle
     steps:
     - uses: actions/checkout@v3
     
