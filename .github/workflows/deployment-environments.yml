@@ -27,17 +27,17 @@ jobs:
       run: chmod +x ./gradlew
 
     - name: Setup Gradle
-      uses: gradle/gradle-build-action@v2
+      uses: gradle/gradle-build-action@v3
       with:
         gradle-version: 8.5
 
-    - uses: gradle/gradle-build-action@v2
-      with:
-        arguments: build
+    - name: Build with Gradle
+      working-directory: ./basic_gradle
+      run: ./gradlew build
         
-    - uses: gradle/gradle-build-action@v2
-      with:
-        arguments: test
+    #- uses: gradle/gradle-build-action@v2
+    #  with:
+    #    arguments: test
 
     
   #  - name: Check gradle version
