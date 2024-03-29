@@ -22,6 +22,9 @@ jobs:
     # - name: Setup Gradle
     #  uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
 
+    - name: Make gradlew executable
+      run: chmod +x ./gradlew
+
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
@@ -30,6 +33,7 @@ jobs:
     - uses: gradle/gradle-build-action@v2
       with:
         arguments: build
+        
     - uses: gradle/gradle-build-action@v2
       with:
         arguments: test
@@ -38,12 +42,9 @@ jobs:
   #  - name: Check gradle version
    #   run: gradle --version
 
-    - name: Make gradlew executable
-      run: chmod +x ./gradlew
-
-    - name: Build with Gradle
+   # - name: Build with Gradle
      # working-directory: ./basic_gradle
-      run: ./gradlew build
+    #  run: ./gradlew build
         
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
