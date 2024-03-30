@@ -48,7 +48,7 @@ jobs:
     #  run: ./gradlew build
 
     - name: list after building 
-      run: ls --all
+      run: ls --all ./basic_gradle
         
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
