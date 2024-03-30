@@ -46,6 +46,9 @@ jobs:
    # - name: Build with Gradle
      # working-directory: ./basic_gradle
     #  run: ./gradlew build
+
+    - name: list after building 
+      run: ls --all
         
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
