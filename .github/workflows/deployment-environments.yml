@@ -54,7 +54,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: archive.zip
-        path: build/libs
+        path: ./basic_gradle/build/libs
            
         
   deploy-dev:
