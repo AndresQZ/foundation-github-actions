@@ -18,9 +18,6 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-    
-    # - name: Setup Gradle
-    #  uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
 
     - name: Make gradlew executable
       working-directory: ./basic_gradle
@@ -39,16 +36,9 @@ jobs:
     #  with:
     #    arguments: test
 
-    
-  #  - name: Check gradle version
-   #   run: gradle --version
-
-   # - name: Build with Gradle
-     # working-directory: ./basic_gradle
-    #  run: ./gradlew build
-
-    - name: list after building 
-      run: ls --all ./basic_gradle
+    - name: list files at ./basic_gradle directory
+      working-directory: ./basic_gradle
+      run: ls --all
         
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
