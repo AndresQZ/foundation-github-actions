@@ -37,7 +37,7 @@ jobs:
     #    arguments: test
 
     - name: list files at ./basic_gradle directory
-      working-directory: ./basic_gradle
+      working-directory: ./basic_gradle/build/libs
       run: ls --all
         
     - name: Upload Artifact
