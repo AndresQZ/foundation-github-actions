@@ -3,6 +3,7 @@ plugins {
 }
 
 jar {
+    archivesBaseName = 'greetings-deploy'
     manifest {
         attributes(
                 'Main-Class': 'echoMsg'
