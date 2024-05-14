@@ -29196,6 +29196,8 @@ __nccwpck_require__.r(__webpack_exports__);
 /* harmony export */ __nccwpck_require__.d(__webpack_exports__, {
 /* harmony export */   "frequencyCounterWithMap": () => (/* binding */ frequencyCounterWithMap)
 /* harmony export */ });
+const core = __nccwpck_require__(2186);
+
 
 function frequencyCounterWithMap (array) {
     const fcMap = new Map();
@@ -29210,6 +29212,7 @@ function frequencyCounterWithMap (array) {
    })
 
    console.log(`counter :${counter}`);
+   core.setOutput("counter", `${counter}`);
 }
 
 /***/ }),
@@ -31146,7 +31149,9 @@ try {
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`);
 
+  console.log(`calling frequencyCounterWithMap`);
   frequencyCounterWithMap([1,2,2,3,4,5,7,7,8,4])
+  
 } catch (error) {
   core.setFailed(error.message);
 }
