@@ -1,0 +1,59 @@
+# This is a reusable workflow for creating an issue
+
+name: learning-data
+
+
+on:
+  # Allows you to call this manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      title:
+        description: 'Issue title'
+        required: true
+      body:
+        description: 'Issue body'
+        required: true
+
+jobs:
+  # Capturing Output from a Step 
+  setup: # job name
+    runs-on: ubuntu-latest
+    outputs:
+      build-stage: ${{ steps.set-debug-stage.outputs.BUILD_STAGE }}
+    steps:
+      - name: Set debug
+        id: set-debug-stage  #step Id is important
+        run: echo "BUILD_STAGE=${{ inputs.body }}"" >> $GITHUB_OUTPUT
+        
+      - name: Get stage
+        run: echo "The build stage is ${{ steps.set-debug-stage.outputs.BUILD_STAGE }}"
+
+
+  # Capturing Output from a Job
+  settingOutputs:
+    runs-on: ubuntu-latest
+    outputs:
+      simpleValue: ${{ steps.assign-value.outputs.simple}}
+
+    steps:
+      - id: step1
+        run: echo "simple=simpleValue" >> "$GITHUB_OUTPUT"
+
+  
+  # Output from a job
+  readingOutputs:
+    runs-on: ubuntu-latest
+    needs: basic-job
+    steps:
+      - name: Get simple value
+        run: echo "The build stage is ${{needs.settingOutputs.outputs.simpleValue}}"
+
+  # reference it via an environment variable in a job
+  readingCleanerWay:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+    - name: Get stage
+      env:
+        BUILD_STAGE: ${{ needs.settingOutputs.outputs.simpleValue }}
+      run: echo "The build stage is $BUILD_STAGE"
