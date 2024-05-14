@@ -29188,6 +29188,32 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
+/***/ 3668:
+/***/ ((__unused_webpack_module, __webpack_exports__, __nccwpck_require__) => {
+
+"use strict";
+__nccwpck_require__.r(__webpack_exports__);
+/* harmony export */ __nccwpck_require__.d(__webpack_exports__, {
+/* harmony export */   "frequencyCounterWithMap": () => (/* binding */ frequencyCounterWithMap)
+/* harmony export */ });
+
+function frequencyCounterWithMap (array) {
+    const fcMap = new Map();
+    let counter = 0;
+
+    for (let i= 0; i < array.length ; i++) {
+        fcMap.set(array[i], (fcMap.get(array[i]) || 0) + 1)
+    }
+
+   fcMap.forEach(value => {
+    if (value > 1) counter++
+   })
+
+   console.log(`counter :${counter}`);
+}
+
+/***/ }),
+
 /***/ 9491:
 /***/ ((module) => {
 
@@ -31070,6 +31096,34 @@ module.exports = parseParams
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__nccwpck_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__nccwpck_require__.o(definition, key) && !__nccwpck_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__nccwpck_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__nccwpck_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat */
 /******/ 	
 /******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";
@@ -31080,6 +31134,7 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
+const {frequencyCounterWithMap}  =  __nccwpck_require__(3668)
 
 try {
   // `who-to-greet` input defined in action metadata file
@@ -31090,6 +31145,8 @@ try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`);
+
+  frequencyCounterWithMap([1,2,2,3,4,5,7,7,8,4])
 } catch (error) {
   core.setFailed(error.message);
 }
