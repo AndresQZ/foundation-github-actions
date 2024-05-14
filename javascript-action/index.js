@@ -10,7 +10,7 @@ try {
   core.setOutput("time", time);
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
+  //console.log(`The event payload: ${payload}`);
 
   console.log(`calling frequencyCounterWithMap`);
   frequencyCounterWithMap([1,2,2,3,4,5,7,7,8,4])

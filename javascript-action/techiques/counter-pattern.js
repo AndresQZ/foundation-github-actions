@@ -1,7 +1,8 @@
 const core = require('@actions/core');
 
 
-export function frequencyCounterWithMap (array) {
+export function frequencyCounterWithMap (array)  {
+console.log(`starting frequencyCounterWithMap!`);
     const fcMap = new Map();
     let counter = 0;
 
