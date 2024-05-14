@@ -1,3 +1,5 @@
+name: Javascript action
+
 on:
   # Allows you to call this manually from the Actions tab
   workflow_dispatch:
