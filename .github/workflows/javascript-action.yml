@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: AndresQZ/foundation-github-actions/javascript-action@v1.1
+        uses: AndresQZ/foundation-github-actions/javascript-action@v1.0.1
         with:
           who-to-greet: ${{inputs.greet}}
       # Use the output from the `hello` step
